@@ -135,7 +135,8 @@ export async function uploadBuffer(buffer, opts = {}) {
 
   const url = objectUrl(c, key)
   remember(hash, url)
-  bump(buf.length)
+  bump(buf.length, url)
+  logger.info?.(`[alioss] 已上传 ${(buf.length / 1024).toFixed(0)}KB -> ${url}`)
   return url
 }
 
