@@ -32,6 +32,7 @@ export class ossBridge extends plugin {
     super({
       name: "阿里OSS图床",
       dsc: "QQBot出图自动转OSS链接",
+      namespace: "alioss-plugin",
       event: "message",
       priority: 100,
       handler: open ? [{ key: "QQBot.makeMarkdownImage", fn: "onImage" }] : [],
