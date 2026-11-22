@@ -6,17 +6,18 @@ let sign = ""
 
 // 建立客户端
 export function getClient(c = cfg()) {
-  const key = [c.accessKeyId, c.accessKeySecret, c.bucket, c.region, c.endpoint || ""].join("|")
+  const host = c.endpoint || `oss-${c.region}.aliyuncs.com`
+  const key = [c.accessKeyId, c.accessKeySecret, c.bucket, c.region, host].join("|")
   if (client && sign === key) return client
   const opts = {
     region: c.region,
     accessKeyId: c.accessKeyId,
     accessKeySecret: c.accessKeySecret,
     bucket: c.bucket,
+    endpoint: host,
     secure: true,
     timeout: 30000
   }
-  if (c.endpoint) opts.endpoint = String(c.endpoint).replace(/^https?:\/\//, "")
   client = new OSS(opts)
   sign = key
   return client
