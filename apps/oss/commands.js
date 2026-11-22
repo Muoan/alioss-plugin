@@ -55,6 +55,8 @@ export class ossCommand extends plugin {
       `过期: ${Number(c.expireDays) || 0} 天`,
       `清理: ${c.cleanupEnabled === false ? "关闭" : "开启"}`,
       `上传: ${s.uploads} 次 / ${size(s.bytes)}`,
+      `最近上传: ${s.lastTime ? time(s.lastTime) : "无"}`,
+      s.lastUrl ? `链接: ${s.lastUrl}` : "链接: 无",
       `已清理: ${s.cleaned} 个`,
       `上次清理: ${time(s.lastCleanup)}`,
       `配置: ${configPath.split(/[\\/]/).slice(-3).join("/")}`
