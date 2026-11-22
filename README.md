@@ -4,12 +4,6 @@
 ## 😍插件介绍：
 **把 Yunzai 渲染出来的本地图片自动传上阿里云 OSS，再用 OSS 链接发出去。**
 
-**QQ 官方机器人（QQBot）发图时经常因为本地图片太大、链接是内网地址而加载失败，本插件接管出图流程后，QQ 直接拿到公网 OSS 地址，加载快、失败少、也不占用服务器带宽。**
-
-**同时带自动过期清理，图片过期就删，不会一直占着存储烧钱。**
-
-**本插件只做一件事：把图搬走。不改变任何命令行为，不改机器人逻辑，随时可关。**
-
 ****
 # 😒安装插件：
 <details>
@@ -29,7 +23,7 @@
 
 **3.gitee：**
 
-`git clone --depth=1 https://用户名:令牌@gitee.com/bxxov/alioss-plugin.git ./plugins/alioss-plugin/`
+`git clone --depth=1 https://用户名:令牌@gitee.com/muoan/alioss-plugin.git ./plugins/alioss-plugin/`
 
 ****
 # 😁安装依赖：
@@ -70,7 +64,6 @@ Yunzai 出图（帮助图、面板图、二维码、markdown 图等）后，QQBo
 - 挂 `QQBot.makeMarkdownImage` Handler：QQBot 直接拿到本插件返回的 OSS 链接，不再走它自带的素材上传兜底。
 - 同时接管 `Bot.fileToUrl`：其它适配器（ICQQ / OneBot 等）出图也会走 OSS。
 - 三种形态都兼容：本地路径、`Buffer`、`base64://`。
-- 上传失败自动回退原生逻辑，不会把图弄丢。
 
 **3、发送与过期**
 
@@ -131,18 +124,6 @@ Yunzai 出图（帮助图、面板图、二维码、markdown 图等）后，QQBo
 
 </details>
 
-****
-# 😂关于视频
-<details>
-<summary>展开/收起</summary>
-
-**QQ 官方机器人的视频走的是「素材上传 + file_info」接口，链接形式发不了视频，所以 QQBot 的视频仍然由适配器自己传，OSS 帮不上忙。**
-
-**`videoEnabled` 打开后，视频会在 `Bot.fileToUrl` 这一层走 OSS，对 ICQQ / OneBot 这类支持链接直发的适配器有效。**
-
-**结论：图片走 OSS 收益最大，视频按需开。**
-
-</details>
 
 ****
 # 😊省钱建议
@@ -174,9 +155,8 @@ Yunzai 出图（帮助图、面板图、二维码、markdown 图等）后，QQBo
 # 😊友情链接：
 [Miao-Yunzai](https://gitee.com/yoimiya-kokomi/Miao-Yunzai)
 [TRSS-Yunzai](https://gitee.com/TimeRainStarSky/Yunzai)
-[QQBot-Plugin](https://github.com/Muoan/Yunzai-QQBot-Plugin)
+[QQBot-Plugin](https://github.com/ikun250000/QQBot-Plugin)
 
-**模板与锅巴适配参考：[Ymoan-plugin](https://github.com/Muoan/Ymoan-plugin)**
 
 ****
 # 😍其他：
