@@ -155,7 +155,7 @@ Yunzai 出图（帮助图、面板图、二维码、markdown 图等）后，QQBo
 # 😊友情链接：
 [Miao-Yunzai](https://gitee.com/yoimiya-kokomi/Miao-Yunzai)
 [TRSS-Yunzai](https://gitee.com/TimeRainStarSky/Yunzai)
-[QQBot-Plugin](https://github.com/ikun250000/QQBot-Plugin)
+[QQBot-Plugin](https://github.com/ikun25000/QQBot-Plugin)
 
 
 ****
