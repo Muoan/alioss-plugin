@@ -1,0 +1,10 @@
+{
+  "name": "alioss-plugin",
+  "version": "1.0.0",
+  "description": "阿里云OSS图床丨QQBot出图自动转OSS链接丨过期自动清理",
+  "author": "Muoan",
+  "type": "module",
+  "dependencies": {
+    "ali-oss": "^6.21.0"
+  }
+}

@@ -1,0 +1,35 @@
+# 阿里OSS图床配置
+enabled: false
+# 接管出图
+bridgeFileToUrl: true
+# 目录前缀
+dirPrefix: "yunzai"
+
+# 阿里云凭证
+accessKeyId: ""
+accessKeySecret: ""
+bucket: ""
+region: "cn-hangzhou"
+endpoint: ""
+cdnDomain: ""
+
+# 私有桶
+signedUrl: false
+signTtl: 3600
+
+# 图片设置
+imageMaxMB: 10
+compress: true
+compressKB: 1024
+compressWidth: 1280
+compressQuality: 82
+
+# 视频设置
+videoEnabled: false
+videoMaxMB: 100
+
+# 过期清理
+expireDays: 3
+cleanupEnabled: true
+cleanupCron: "0 0 4 * * ?"
+cleanupBatch: 1000
