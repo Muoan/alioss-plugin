@@ -30,6 +30,22 @@ export function ensureConfig() {
   }
 }
 
+// 规整字段
+export function normalize(c) {
+  let region = String(c.region || "").trim()
+  region = region.replace(/^https?:\/\//, "").replace(/\.aliyuncs\.com.*$/, "").replace(/^oss-/, "")
+
+  let endpoint = String(c.endpoint || "").trim().replace(/^https?:\/\//, "").replace(/\/.*$/, "")
+  if (endpoint) {
+    const pre = `${c.bucket}.`
+    if (endpoint.startsWith(pre)) endpoint = endpoint.slice(pre.length)
+    if (!endpoint.includes(".aliyuncs.com")) endpoint = ""
+  }
+
+  const dirPrefix = String(c.dirPrefix || "").trim().replace(/^\/+|\/+$/g, "") || "yunzai"
+  return { ...c, region, endpoint, dirPrefix }
+}
+
 // 热读配置
 export function cfg() {
   ensureConfig()
@@ -37,10 +53,10 @@ export function cfg() {
     const stat = fs.statSync(configPath)
     if (cache.data && stat.mtimeMs === cache.mtime) return cache.data
     const user = YAML.parse(fs.readFileSync(configPath, "utf8")) || {}
-    cache = { mtime: stat.mtimeMs, data: { ...loadDefaults(), ...user } }
+    cache = { mtime: stat.mtimeMs, data: normalize({ ...loadDefaults(), ...user }) }
     return cache.data
   } catch {
-    return { ...loadDefaults() }
+    return normalize({ ...loadDefaults() })
   }
 }
 
