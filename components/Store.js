@@ -21,6 +21,8 @@ function load() {
   state.cleaned ||= 0
   state.lastCleanup ||= 0
   state.lastError ||= ""
+  state.lastUrl ||= ""
+  state.lastTime ||= 0
   return state
 }
 
@@ -38,10 +40,14 @@ function save() {
 }
 
 // 记一次上传
-export function bump(size) {
+export function bump(size, url = "") {
   const s = load()
   s.uploads++
   s.bytes += Number(size) || 0
+  if (url) {
+    s.lastUrl = url
+    s.lastTime = Date.now()
+  }
   save()
 }
 
